@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  direction: rtl;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  background: #1f2120;
+
+  font-family: "Tajawal", "IBM Plex Sans Arabic", "Arial", sans-serif;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+:root {
+  --bg-main: #1f2120;
+  --bg-bar: #333333;
+
+  --text-main: #f2f2f2;
+  --text-soft: #c8c8c8;
+  --text-muted: #9f9f9f;
+
+  --container-padding: clamp(18px, 4vw, 56px);
+  --topbar-height: clamp(72px, 9vw, 86px);
+
+  --font-nav: clamp(12px, 1vw, 14px);
+  --font-title: clamp(28px, 5vw, 58px);
+  --font-text: clamp(15px, 1.4vw, 18px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  direction: rtl;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg-main);
+  font-family: "Tajawal", "IBM Plex Sans Arabic", Arial, sans-serif;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+}

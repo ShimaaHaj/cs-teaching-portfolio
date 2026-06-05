@@ -1,0 +1,14 @@
+.app-layout {
+  min-height: 100vh;
+  background: var(--bg-main);
+}
+
+.page-content {
+  min-height: 100vh;
+
+  padding-top: calc(var(--topbar-height) + clamp(28px, 5vw, 56px));
+  padding-inline: var(--container-padding);
+  padding-bottom: clamp(32px, 6vw, 56px);
+
+  color: var(--text-main);
+}
