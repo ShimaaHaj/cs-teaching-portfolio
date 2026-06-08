@@ -1,4 +1,5 @@
 import "../styles/home.css";
+import heroImage from "../assets/images/SH1.png";
 
 import {
   TbBrandGithub,
@@ -11,8 +12,14 @@ function Home() {
   return (
     <section className="home-hero">
       <div className="home-image-side">
-        <img src="/hero.jpg" alt="شيماء حاج" />
-      </div>
+        <div className="home-image-glow"></div>
+
+          <img
+            className="home-profile-image"
+            src={heroImage}
+            alt="شيماء حاج"
+          />
+        </div>
 
       <div className="home-content-side">
         <div className="home-title-block">

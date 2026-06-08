@@ -13,8 +13,8 @@
 
   padding-inline: var(--container-padding);
 
-  background: #333333;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  background: var(--primary-dark);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .menu-icon {
@@ -37,7 +37,7 @@
   width: 42px;
   height: 2px;
 
-  background: #bcbcbc;
+  background: #eef5f8;
   border-radius: 999px;
 
   transition:
@@ -46,7 +46,7 @@
 }
 
 .menu-icon:hover span {
-  background: #f4f4f4;
+  background: #ffffff;
 }
 
 .nav-links {
@@ -63,7 +63,7 @@
 .nav-links a {
   position: relative;
 
-  color: #b9b9b9;
+  color: #eef5f8;
   text-decoration: none;
 
   font-family: "Readex Pro", "Tajawal", sans-serif;
@@ -81,7 +81,7 @@
 }
 
 .nav-links a:hover {
-  color: #f2f5f3;
+  color: #ffffff;
   transform: translateY(-1px);
 }
 
@@ -97,7 +97,7 @@
 
   border-radius: 999px;
 
-  background: #d9eee7;
+  background: #DCE8EE;
 
   transform: translateX(50%);
 
@@ -110,7 +110,7 @@
 
 .nav-links a:hover::after {
   width: 18px;
-  opacity: 0.65;
+  opacity: 0.75;
 }
 
 .nav-links a.active {
@@ -144,7 +144,7 @@
   border-radius: 50%;
 
   background: transparent;
-  color: #b9b9b9;
+  color: #eef5f8;
 
   font-size: 30px;
   line-height: 1;
@@ -159,7 +159,7 @@
 
 .topbar-action:hover {
   color: #ffffff;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.14);
   transform: translateY(-1px);
 }
 

@@ -11,7 +11,7 @@ body {
   margin: 0;
   min-height: 100vh;
 
-  background: #1f2120;
+  background: var(--bg-main);
 
   font-family: "Tajawal", "IBM Plex Sans Arabic", "Arial", sans-serif;
 }
@@ -28,12 +28,15 @@ a {
 }
 
 :root {
-  --bg-main: #1f2120;
-  --bg-bar: #333333;
+  --bg-main: #213a4a;
+  --bg-secondary: #EEF4F7;
 
-  --text-main: #f2f2f2;
-  --text-soft: #c8c8c8;
-  --text-muted: #9f9f9f;
+  --primary: #7DA7C7;
+  --primary-dark: #5F7FA3;
+
+  --text-dark: #2C3137;
+  --text-soft: #5A6570;
+  --text-muted: #7C8791;
 
   --container-padding: clamp(18px, 4vw, 56px);
   --topbar-height: clamp(72px, 9vw, 86px);
