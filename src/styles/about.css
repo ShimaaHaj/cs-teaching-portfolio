@@ -1,0 +1,154 @@
+.about-page {
+  min-height: 100vh;
+  padding-top: var(--topbar-height);
+  background: var(--bg-secondary);
+  color: var(--text-dark);
+}
+
+.about-hero {
+  padding: clamp(70px, 9vw, 125px) var(--container-padding)
+    clamp(50px, 6vw, 85px);
+
+  background: var(--bg-main);
+  color: #ffffff;
+}
+
+.about-kicker {
+  display: inline-block;
+  margin-bottom: 18px;
+
+  color: #dce8ee;
+  font-family: "Readex Pro", "Tajawal", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.about-hero h1 {
+  margin: 0;
+
+  font-family: "Alexandria", sans-serif;
+  font-size: clamp(38px, 6vw, 82px);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.about-hero p {
+  max-width: 720px;
+  margin: 28px 0 0;
+
+  color: #dce8ee;
+  font-size: clamp(16px, 1.4vw, 20px);
+  line-height: 2;
+}
+
+.about-sections {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: clamp(50px, 7vw, 95px) 0;
+
+  display: grid;
+  gap: 30px;
+}
+
+.about-card {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: clamp(24px, 4vw, 56px);
+  align-items: center;
+
+  padding: clamp(22px, 3vw, 34px);
+
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(95, 127, 163, 0.18);
+  border-radius: 30px;
+
+  box-shadow: 0 22px 55px rgba(33, 58, 74, 0.08);
+}
+
+.about-card.reverse {
+  grid-template-columns: 1fr 320px;
+}
+
+.about-card.reverse .about-card-image {
+  order: 2;
+}
+
+.about-card.reverse .about-card-content {
+  order: 1;
+}
+
+.about-card-image {
+  height: 220px;
+  border-radius: 24px;
+  overflow: hidden;
+
+  background: #dce8ee;
+}
+
+.about-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-card-content {
+  padding-inline: clamp(4px, 1vw, 16px);
+}
+
+.about-title-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  margin-bottom: 18px;
+}
+
+.about-icon {
+  width: 58px;
+  height: 58px;
+
+  display: grid;
+  place-items: center;
+
+  flex-shrink: 0;
+
+  border-radius: 18px;
+  background: rgba(125, 167, 199, 0.18);
+  color: var(--primary-dark);
+
+  font-size: 31px;
+}
+
+.about-card h2 {
+  margin: 0;
+
+  color: var(--text-dark);
+  font-family: "Alexandria", sans-serif;
+  font-size: clamp(22px, 2.3vw, 33px);
+  font-weight: 700;
+}
+
+.about-card p {
+  margin: 0;
+
+  color: var(--text-soft);
+  font-size: clamp(15px, 1.25vw, 18px);
+  line-height: 2;
+  text-align: justify;
+}
+
+@media (max-width: 850px) {
+  .about-card,
+  .about-card.reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .about-card.reverse .about-card-image,
+  .about-card.reverse .about-card-content {
+    order: initial;
+  }
+
+  .about-card-image {
+    height: 210px;
+  }
+}
