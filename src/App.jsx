@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 
 import MainLayout from "./layout/MainLayout";
 
@@ -15,7 +15,7 @@ import FinalView from "./pages/FinalView";
 
 function App() {
   return (
-    <BrowserRouter basename="/cs-teaching-portfolio">
+    <HashRouter>
       <MainLayout>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -30,7 +30,7 @@ function App() {
           <Route path="/final-view" element={<FinalView />} />
         </Routes>
       </MainLayout>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
