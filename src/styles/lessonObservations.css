@@ -1,0 +1,179 @@
+.observations-page {
+  min-height: 100vh;
+  padding-top: var(--topbar-height);
+
+  background: var(--bg-secondary);
+  color: var(--text-dark);
+}
+
+.observations-wrapper {
+  width: min(1350px, calc(100% - 40px));
+  margin: 0 auto;
+
+  padding: clamp(50px, 7vw, 90px) 0;
+}
+
+.observation-month {
+  padding: clamp(32px, 5vw, 58px) 0;
+}
+
+.observation-month:first-child {
+  padding-top: 0;
+}
+
+.observation-month:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.month-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 28px;
+
+  padding: 18px 24px;
+
+  background: var(--bg-main);
+
+  border-radius: 20px;
+}
+
+.month-heading h2 {
+  margin: 0;
+
+  color: white;
+
+  font-family: "Alexandria", sans-serif;
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 800;
+}
+
+.month-heading span {
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  color: rgba(255, 255, 255, 0.85);
+
+  font-family: "Readex Pro", "Tajawal", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.reports-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.report-card {
+  min-height: 400px;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 24px;
+
+  border: 1px solid rgba(95, 127, 163, 0.18);
+  border-radius: 24px;
+
+  background: rgba(255, 255, 255, 0.58);
+  color: var(--text-dark);
+
+  text-decoration: none;
+
+  transition:
+    transform 0.22s ease,
+    background 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.report-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.86);
+  border-color: rgba(95, 127, 163, 0.34);
+}
+
+.report-number {
+  color: var(--primary-dark);
+
+  font-family: "Alexandria", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.report-icon {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+
+  color: rgba(95, 127, 163, 0.65);
+  font-size: 25px;
+}
+
+.report-title {
+  margin-top: 22px;
+
+  color: var(--text-dark);
+
+  font-family: "Alexandria", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.report-description {
+  margin-top: 10px;
+
+  color: var(--text-soft);
+
+  font-family: "Tajawal", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+.report-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-top: auto;
+
+  color: var(--primary-dark);
+
+  font-family: "Readex Pro", "Tajawal", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.report-open svg {
+  font-size: 16px;
+}
+
+@media (max-width: 1000px) {
+  .reports-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .observations-wrapper {
+    width: min(100% - 28px, 1350px);
+  }
+
+  .month-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .reports-grid {
+    grid-template-columns: 1fr;
+  }
+}
