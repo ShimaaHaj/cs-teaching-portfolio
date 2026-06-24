@@ -19,7 +19,7 @@
 
 .menu-icon {
   width: 42px;
-  height: 28px;
+  height: 34px;
 
   display: flex;
   flex-direction: column;
@@ -29,7 +29,10 @@
   padding: 0;
   border: 0;
   background: transparent;
+  color: #eef5f8;
+
   cursor: pointer;
+  font-size: 26px;
 }
 
 .menu-icon span {
@@ -96,8 +99,7 @@
   height: 1px;
 
   border-radius: 999px;
-
-  background: #DCE8EE;
+  background: #dce8ee;
 
   transform: translateX(50%);
 
@@ -164,34 +166,95 @@
 }
 
 @media (max-width: 900px) {
-  .nav-links {
-    justify-content: flex-start;
+  .topbar {
+    height: var(--topbar-height);
 
-    overflow-x: auto;
-    scrollbar-width: none;
+    padding-inline: 20px;
 
-    padding-inline: 18px;
+    grid-template-columns: auto 1fr auto;
   }
 
-  .nav-links::-webkit-scrollbar {
-    display: none;
+  .menu-icon {
+    grid-column: 1;
+    justify-self: start;
+
+    width: 38px;
+    height: 38px;
+    font-size: 27px;
   }
 
-  .nav-links a {
-    font-size: 13px;
-  }
-
-  .nav-links a.active {
-    font-size: 14px;
+  .menu-icon span {
+    width: 36px;
   }
 
   .topbar-actions {
+    grid-column: 3;
+    justify-self: end;
+
     gap: 8px;
   }
 
   .topbar-action {
-    width: 32px;
-    height: 32px;
-    font-size: 16px;
+    width: 34px;
+    height: 34px;
+    font-size: 19px;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: var(--topbar-height);
+    right: 0;
+    left: 0;
+    z-index: 999;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+
+    padding: 16px 22px 22px;
+
+    background: rgba(95, 127, 163, 0.98);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+
+    box-shadow: 0 22px 45px rgba(33, 58, 74, 0.22);
+
+    transform: translateY(-18px);
+    opacity: 0;
+    pointer-events: none;
+
+    transition:
+      transform 0.25s ease,
+      opacity 0.25s ease;
+  }
+
+  .nav-links.show {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-links a {
+    width: 100%;
+
+    padding: 15px 4px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+    font-size: 15px;
+    text-align: right;
+  }
+
+  .nav-links a:last-child {
+    border-bottom: 0;
+  }
+
+  .nav-links a::after {
+    display: none;
+  }
+
+  .nav-links a.active {
+    color: #ffffff;
+    font-weight: 700;
+    transform: none;
   }
 }

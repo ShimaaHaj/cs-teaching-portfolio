@@ -1,27 +1,42 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { FiUser, FiSearch } from "react-icons/fi";
+import { FiUser, FiSearch, FiX } from "react-icons/fi";
 
 import "../styles/sidebar.css";
 
 function Sidebar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const closeMenu = () => setIsOpen(false);
+
   return (
     <header className="topbar">
-      <button className="menu-icon" aria-label="فتح القائمة">
-        <span></span>
-        <span></span>
+      <button
+        className={`menu-icon ${isOpen ? "open" : ""}`}
+        aria-label="فتح القائمة"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        {isOpen ? (
+          <FiX />
+        ) : (
+          <>
+            <span></span>
+            <span></span>
+          </>
+        )}
       </button>
 
-      <nav className="nav-links">
-        <NavLink to="/">الرئيسية</NavLink>
-        <NavLink to="/about">نبذة مهنية</NavLink>
-        <NavLink to="/lesson-observations">مشاهدات صفية</NavLink>
-        <NavLink to="/lesson-planning">تخطيط الدروس</NavLink>
-        <NavLink to="/activities">أنشطة مدرسية</NavLink>
-        <NavLink to="/learning-center">مركز التعلم</NavLink>
-        <NavLink to="/gallery">رواق الصور</NavLink>
-        <NavLink to="/feedback">التغذية الراجعة</NavLink>
-        <NavLink to="/reflection">تأملات تربوية</NavLink>
-        <NavLink to="/final-view">العام الدراسي</NavLink>
+      <nav className={`nav-links ${isOpen ? "show" : ""}`}>
+        <NavLink to="/" onClick={closeMenu}>الرئيسية</NavLink>
+        <NavLink to="/about" onClick={closeMenu}>نبذة مهنية</NavLink>
+        <NavLink to="/lesson-observations" onClick={closeMenu}>مشاهدات صفية</NavLink>
+        <NavLink to="/lesson-planning" onClick={closeMenu}>تخطيط الدروس</NavLink>
+        <NavLink to="/activities" onClick={closeMenu}>أنشطة مدرسية</NavLink>
+        <NavLink to="/learning-center" onClick={closeMenu}>مركز التعلم</NavLink>
+        <NavLink to="/gallery" onClick={closeMenu}>رواق الصور</NavLink>
+        <NavLink to="/feedback" onClick={closeMenu}>التغذية الراجعة</NavLink>
+        <NavLink to="/reflection" onClick={closeMenu}>تأملات تربوية</NavLink>
+        <NavLink to="/final-view" onClick={closeMenu}>العام الدراسي</NavLink>
       </nav>
 
       <div className="topbar-actions">
