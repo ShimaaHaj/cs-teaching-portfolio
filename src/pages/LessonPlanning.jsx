@@ -1,196 +1,224 @@
+import { useMemo, useState } from "react";
 import "../styles/lessonPlanning.css";
 
-import { useState } from "react";
-
 import {
+  TbArrowLeft,
+  TbArrowRight,
   TbCalendar,
   TbCode,
   TbExternalLink,
   TbFileDescription,
   TbFileText,
   TbPhoto,
-  TbX,
+  TbSparkles,
+  TbTargetArrow,
 } from "react-icons/tb";
 
-const lessonImages = import.meta.glob("../assets/images/d{1,2,3}C*.jpg", {
+const lessonImages = import.meta.glob("../assets/images/{d1C,d2C,d3C,dTCo}*.jpg", {
   eager: true,
   import: "default",
 });
 
 function getImages(prefix, count) {
   return Array.from({ length: count }, (_, index) => {
-    const imageName = `${prefix}${index + 1}.jpg`;
-    const imagePath = `../assets/images/${imageName}`;
-
-    return {
-      name: imageName,
-      src: lessonImages[imagePath],
-    };
-  }).filter((image) => image.src);
+    const path = `../assets/images/${prefix}${index + 1}.jpg`;
+    return lessonImages[path];
+  }).filter(Boolean);
 }
 
 const lessons = [
   {
-    number: "01",
-    day: "الثلاثاء",
-    date: "16/09/2025",
+    no: "01",
     title: "عالم المتغيرات",
-    subject: "C#",
-    description:
-      "تناول الدرس مفهوم المتغيرات في لغة C# بوصفها أساسًا مهمًا في بناء البرامج. تعرّف الطلاب إلى معنى المتغير، طريقة تعريفه، أنواعه الأساسية، وكيفية استخدامه في تخزين القيم والتعامل معها داخل البرنامج من خلال أمثلة تطبيقية واضحة.",
-    planLink:
-      "https://www.canva.com/design/DAG6VNFHPoA/W1jl8d_3CtkpGzqpeSEzLg/edit",
-    presentationLink:
-      "https://www.canva.com/design/DAG6VNFHPoA/W1jl8d_3CtkpGzqpeSEzLg/edit",
+    subtitle: "حين يبدأ البرنامج بتخزين المعنى",
+    field: "C#",
+    date: "درس تمهيدي",
+    type: "برمجة نصية",
+    mood: "regular",
+    text: "قدّم هذا الدرس مدخلًا إلى مفهوم المتغيرات في لغة C#، حيث تعرّف الطلاب إلى آلية تخزين البيانات واستخدامها داخل البرامج، وفهموا العلاقة بين اسم المتغير ونوعه وقيمته من خلال تطبيقات عملية واقعية.",
+    goal: "أن يدرك الطالب أن المتغير هو حجر الأساس في بناء البرامج.",
+    tags: ["Variables", "Data Types", "Input", "C#"],
+    plan: "#",
+    slides: "#",
     images: getImages("d1C", 15),
   },
   {
-    number: "02",
-    day: "الثلاثاء",
-    date: "23/09/2025",
+    no: "02",
     title: "الدوال",
-    subject: "C#",
-    description:
-      "ركز الدرس على مفهوم الدوال في لغة C# ودورها في تنظيم الشيفرة البرمجية وتقسيمها إلى أجزاء قابلة لإعادة الاستخدام. تدرّب الطلاب على بناء الدالة واستدعائها وربطها بأمثلة عملية تعزز التفكير المنطقي.",
-    planLink:
-      "https://www.canva.com/design/DAG3lb_DXlk/--8yjJ8H3XJrTQhX2OJRHQ/edit",
-    presentationLink:
-      "https://www.canva.com/design/DAG3lb_DXlk/--8yjJ8H3XJrTQhX2OJRHQ/edit",
+    subtitle: "تنظيم الفكرة قبل كتابة الحل",
+    field: "C#",
+    date: "درس تطبيقي",
+    type: "تنظيم الشيفرة",
+    mood: "regular",
+    text: "ركّز هذا الدرس على مفهوم الدوال كأحد أسس البرمجة المنظمة، حيث تعلّم الطلاب كيفية تقسيم المشكلات إلى مهام أصغر وأكثر وضوحًا، بما يعزز قابلية إعادة الاستخدام ويحسن بنية الشيفرة.",
+    goal: "أن يوظف الطالب الدوال لتنظيم الشيفرة وتقليل التكرار.",
+    tags: ["Functions", "Methods", "Reuse", "Clean Code"],
+    plan: "#",
+    slides: "#",
     images: getImages("d2C", 7),
   },
   {
-    number: "03",
-    day: "الثلاثاء",
-    date: "30/09/2025",
+    no: "03",
     title: "الشروط",
-    subject: "C#",
-    description:
-      "قدّم الدرس مفهوم الجمل الشرطية في لغة C# وكيفية استخدامها لاتخاذ قرارات داخل البرنامج بناءً على تحقق شرط معين. ساعدت الأمثلة التطبيقية الطلاب على فهم منطق القرار البرمجي وتوظيفه في حل المسائل.",
-    planLink:
-      "https://www.canva.com/design/DAG6VNFHPoA/W1jl8d_3CtkpGzqpeSEzLg/edit",
-    presentationLink:
-      "https://www.canva.com/design/DAG3lb_DXlk/--8yjJ8H3XJrTQhX2OJRHQ/edit",
+    subtitle: "حين يتعلّم البرنامج اتخاذ القرار",
+    field: "C#",
+    date: "درس تطبيقي",
+    type: "تفكير منطقي",
+    mood: "regular",
+    text: "استكشف الطلاب في هذا الدرس الجمل الشرطية بوصفها أداة اتخاذ القرار داخل البرنامج، وتعرّفوا إلى كيفية توجيه مسار التنفيذ باستخدام if و else وفقًا للمعطيات المختلفة.",
+    goal: "أن يبني الطالب شروطًا منطقية توجه مسار البرنامج بصورة صحيحة.",
+    tags: ["If", "Else", "Logic", "Decision"],
+    plan: "#",
+    slides: "#",
     images: getImages("d3C", 4),
+  },
+  {
+    no: "04",
+    title: "درس التقييم",
+    subtitle: "مساحة يلتقي فيها الخيال بالبرمجة",
+    field: "CoSpaces Edu",
+    date: "بحضور المعلم المدرب",
+    type: "محطة تقييم رسمية",
+    mood: "featured",
+    text: "مثّل هذا الدرس محطة تقييمية مهمة، تعرّف خلالها الطلاب إلى بيئة CoSpaces Edu وما توفره من دمج بين البرمجة والتصميم ثلاثي الأبعاد، مع التركيز على برمجة البلوكات وتوظيفها في بناء تجارب تعليمية تفاعلية.",
+    goal: "أن يربط الطالب بين البرمجة والتجارب التفاعلية البصرية.",
+    tags: ["CoSpaces", "AI", "3D", "Blocks", "Evaluation"],
+    plan: "#",
+    slides: "#",
+    images: getImages("dTCo", 3),
   },
 ];
 
 function LessonPlanning() {
-  const [activeLessonIndex, setActiveLessonIndex] = useState(0);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(3);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
 
-  const activeLesson = lessons[activeLessonIndex];
-  const coverImage = activeLesson.images[0];
+  const lesson = lessons[activeIndex];
+
+  const gallery = useMemo(() => lesson.images, [lesson]);
+  const activeImage = gallery[activeImageIndex] || gallery[0];
+
+  const changeLesson = (index) => {
+    setActiveIndex(index);
+    setActiveImageIndex(0);
+  };
+
+  const goNext = () => {
+    setActiveIndex((current) => {
+      const next = (current + 1) % lessons.length;
+      setActiveImageIndex(0);
+      return next;
+    });
+  };
+
+  const goPrev = () => {
+    setActiveIndex((current) => {
+      const prev = current === 0 ? lessons.length - 1 : current - 1;
+      setActiveImageIndex(0);
+      return prev;
+    });
+  };
 
   return (
-    <section className="planning-page">
-      <div className="planning-board">
-        <nav className="planning-tabs" aria-label="اختيار الدرس">
-          {lessons.map((lesson, index) => (
+    <section className={`lesson-studio-page ${lesson.mood}`}>
+      <div className="lesson-studio">
+        <aside className="studio-rail">
+          {lessons.map((item, index) => (
             <button
               type="button"
-              key={lesson.number}
-              className={activeLessonIndex === index ? "active" : ""}
-              onClick={() => setActiveLessonIndex(index)}
+              key={item.no}
+              className={`rail-item ${activeIndex === index ? "active" : ""} ${item.mood}`}
+              onClick={() => changeLesson(index)}
             >
-              <span>{lesson.number}</span>
-              <strong>{lesson.title}</strong>
+              <span>{item.no}</span>
+              <strong>{item.title}</strong>
             </button>
           ))}
-        </nav>
+        </aside>
 
-        <section className="planning-stage">
-          <div className="planning-visual">
-            {coverImage && <img src={coverImage.src} alt={activeLesson.title} />}
-
-            <div className="planning-visual-badge">
-              <span>{activeLesson.number}</span>
-              <strong>{activeLesson.subject}</strong>
-            </div>
-          </div>
-
-          <div className="planning-content">
-            <div className="planning-meta">
-              <span>
-                <TbCalendar />
-                {activeLesson.day} - {activeLesson.date}
-              </span>
-
-              <span>
-                <TbCode />
-                {activeLesson.subject}
-              </span>
+        <main className="studio-scene" key={lesson.no}>
+          <section className="scene-copy">
+            <div className="scene-meta">
+              <span><TbCalendar /> {lesson.date}</span>
+              <span><TbCode /> {lesson.type}</span>
+              {lesson.mood === "featured" && <span><TbSparkles /> درس التقييم</span>}
             </div>
 
-            <h1>{activeLesson.title}</h1>
+            <h1>{lesson.title}</h1>
+            <h2>{lesson.subtitle}</h2>
 
-            <p>{activeLesson.description}</p>
+            <p className="scene-text">{lesson.text}</p>
 
-            <div className="planning-actions">
-              <a
-                href={activeLesson.planLink}
-                target="_blank"
-                rel="noreferrer"
-              >
+            <div className="scene-goal">
+              <TbTargetArrow />
+              <p>{lesson.goal}</p>
+            </div>
+
+            <div className="scene-tags">
+              {lesson.tags.map((tag) => (
+                <span key={tag}>{tag}</span>
+              ))}
+            </div>
+
+            <div className="scene-actions">
+              <a href={lesson.plan} target="_blank" rel="noreferrer">
                 <TbFileDescription />
                 خطة الدرس
                 <TbExternalLink />
               </a>
 
-              <a
-                href={activeLesson.presentationLink}
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href={lesson.slides} target="_blank" rel="noreferrer">
                 <TbFileText />
                 المعروضة
                 <TbExternalLink />
               </a>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section className="planning-gallery-section">
-          <div className="planning-gallery-head">
-            <TbPhoto />
-            <span>توثيق بصري للدرس</span>
-            <strong>{activeLesson.images.length} صور</strong>
-          </div>
+          <section className="scene-visual">
+            <div className="art-frame">
+              {activeImage && <img src={activeImage} alt={lesson.title} />}
 
-          <div className="planning-gallery-row">
-            {activeLesson.images.map((image) => (
-              <button
-                type="button"
-                key={image.name}
-                onClick={() => setSelectedImage(image)}
-              >
-                <img src={image.src} alt={image.name} loading="lazy" />
-              </button>
-            ))}
-          </div>
-        </section>
-      </div>
+              <div className="art-label">
+                <span>{lesson.no}</span>
+                <strong>{lesson.field}</strong>
+              </div>
+            </div>
 
-      {selectedImage && (
-        <div
-          className="planning-lightbox"
-          onClick={() => setSelectedImage(null)}
-        >
-          <button
-            type="button"
-            className="planning-close"
-            onClick={() => setSelectedImage(null)}
-            aria-label="إغلاق الصورة"
-          >
-            <TbX />
+            <div className="thumbs-head">
+              <span><TbPhoto /> صور الدرس</span>
+              <small>{gallery.length} صور</small>
+            </div>
+
+            <div className="thumbs-strip">
+              {gallery.map((image, index) => (
+                <button
+                  type="button"
+                  key={index}
+                  className={activeImageIndex === index ? "active" : ""}
+                  onClick={() => setActiveImageIndex(index)}
+                >
+                  <img src={image} alt={`${lesson.title} ${index + 1}`} />
+                </button>
+              ))}
+            </div>
+          </section>
+        </main>
+
+        <div className="studio-controls">
+          <button type="button" onClick={goPrev}>
+            <TbArrowRight />
           </button>
 
-          <img
-            src={selectedImage.src}
-            alt={selectedImage.name}
-            onClick={(event) => event.stopPropagation()}
-          />
+          <span>
+            {String(activeIndex + 1).padStart(2, "0")} / {String(lessons.length).padStart(2, "0")}
+          </span>
+
+          <button type="button" onClick={goNext}>
+            <TbArrowLeft />
+          </button>
         </div>
-      )}
+      </div>
     </section>
   );
 }
