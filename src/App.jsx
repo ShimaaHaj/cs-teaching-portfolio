@@ -1,4 +1,5 @@
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { HashRouter, Routes, Route, useLocation } from "react-router-dom";
 
 import MainLayout from "./layout/MainLayout";
 
@@ -13,9 +14,27 @@ import Gallery from "./pages/Gallery";
 import Reflection from "./pages/Reflection";
 import FinalView from "./pages/FinalView";
 
+import { initGA, trackPageView } from "./utils/analytics";
+
+function AnalyticsTracker() {
+  const location = useLocation();
+
+  useEffect(() => {
+    initGA();
+  }, []);
+
+  useEffect(() => {
+    trackPageView(location.pathname + location.search);
+  }, [location]);
+
+  return null;
+}
+
 function App() {
   return (
     <HashRouter>
+      <AnalyticsTracker />
+
       <MainLayout>
         <Routes>
           <Route path="/" element={<Home />} />
